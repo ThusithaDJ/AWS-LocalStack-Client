@@ -1,0 +1,35 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.0.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'com.aws.localstack.sample.client'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-aws
+	implementation 'org.springframework.cloud:spring-cloud-aws:2.2.2.RELEASE'
+	implementation 'org.springframework.cloud:spring-cloud-aws-messaging:2.0.1.RELEASE'
+	implementation 'org.springframework:spring-jms'
+	implementation 'com.amazonaws:amazon-sqs-java-messaging-lib:1.0.0'
+	
+	
+    implementation 'com.amazonaws:aws-java-sdk-s3:1.11.718'
+    implementation 'com.amazonaws:aws-java-sdk-glue:1.11.718'
+    implementation 'com.amazonaws:aws-java-sdk-iam:1.11.718'
+
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
